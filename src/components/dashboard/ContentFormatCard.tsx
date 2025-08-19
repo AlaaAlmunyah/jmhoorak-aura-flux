@@ -29,42 +29,42 @@ const formatSuggestions = [
 
 export function ContentFormatCard() {
   return (
-    <Card className="glass hover-lift h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-6">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-base font-semibold flex items-center gap-3">
-          <div className="p-3 rounded-xl bg-orange-500/20 border border-orange-500/30">
-            <Video className="w-5 h-5 text-orange-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-4">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-sm font-semibold flex items-center gap-2">
+          <div className="p-2 rounded-lg bg-orange-500/20 border border-orange-500/30">
+            <Video className="w-4 h-4 text-orange-400" />
           </div>
           <div>
             <span className="text-card-foreground">Content Format Suggestions</span>
-            <p className="text-xs text-muted-foreground font-normal mt-1">Format Optimization</p>
+            <p className="text-xs text-muted-foreground font-normal">Format Optimization</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-3">
         {formatSuggestions.map((format, index) => {
           const IconComponent = format.icon;
           return (
-            <div key={index} className="p-4 rounded-lg bg-card-accent transition-all duration-200 hover:bg-card-accent/80">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <IconComponent className="w-5 h-5 text-orange-400" />
-                  <span className="text-sm font-semibold text-card-foreground">{format.type}</span>
+            <div key={index} className="p-3 rounded-lg bg-card-accent transition-all duration-200 hover:bg-card-accent/80">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <IconComponent className="w-4 h-4 text-orange-400" />
+                  <span className="text-xs font-semibold text-card-foreground">{format.type}</span>
                 </div>
                 {format.recommended && (
-                  <Badge variant="secondary" className="text-xs font-medium">
+                  <Badge variant="secondary" className="text-[10px] font-medium">
                     Recommended
                   </Badge>
                 )}
               </div>
               
-              <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Predicted Reach</span>
                   <span className="font-semibold text-orange-400">{format.reach}%</span>
                 </div>
-                <Progress value={format.reach} className="h-2" />
-                <p className="text-sm text-muted-foreground">
+                <Progress value={format.reach} className="h-1.5" />
+                <p className="text-xs text-muted-foreground">
                   {format.description}
                 </p>
               </div>

@@ -28,42 +28,42 @@ export function PostingTimeCard() {
   };
 
   return (
-    <Card className="glass hover-lift h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-6">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-base font-semibold flex items-center gap-3">
-          <div className="p-3 rounded-xl bg-orange-500/20 border border-orange-500/30">
-            <Clock className="w-5 h-5 text-orange-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-4">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-sm font-semibold flex items-center gap-2">
+          <div className="p-2 rounded-lg bg-orange-500/20 border border-orange-500/30">
+            <Clock className="w-4 h-4 text-orange-400" />
           </div>
           <div>
             <span className="text-card-foreground">Posting Time Optimizer</span>
-            <p className="text-xs text-muted-foreground font-normal mt-1">Audience Activity</p>
+            <p className="text-xs text-muted-foreground font-normal">Audience Activity</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-4">
         {/* Heatmap */}
         <div>
-          <div className="grid grid-cols-8 gap-1 text-xs">
+          <div className="grid grid-cols-8 gap-0.5 text-[10px]">
             <div></div>
             {days.map((day) => (
-              <div key={day} className="text-center text-muted-foreground p-1 font-medium">
+              <div key={day} className="text-center text-muted-foreground p-0.5 font-medium">
                 {day}
               </div>
             ))}
             
             {timeData.map((row, rowIndex) => (
               <div key={rowIndex} className="contents">
-                <div className="text-muted-foreground text-right pr-2 py-1 font-medium">
+                <div className="text-muted-foreground text-right pr-1 text-[10px] font-medium">
                   {row.hour}
                 </div>
                 {row.days.map((value, colIndex) => (
                   <div
                     key={colIndex}
-                    className={`aspect-square rounded-lg ${getIntensity(value)} relative transition-all duration-200 hover:scale-110`}
+                    className={`aspect-square rounded ${getIntensity(value)} relative transition-all duration-200 hover:scale-110`}
                     title={`${row.hour} ${days[colIndex]}: ${value}% activity`}
                   >
                     {value >= 90 && (
-                      <div className="absolute inset-0 rounded-lg border-2 border-accent animate-pulse"></div>
+                      <div className="absolute inset-0 rounded border border-accent animate-pulse"></div>
                     )}
                   </div>
                 ))}
@@ -76,14 +76,14 @@ export function PostingTimeCard() {
 
         {/* Best Times */}
         <div>
-          <h4 className="text-sm font-semibold text-card-foreground mb-3">
+          <h4 className="text-xs font-semibold text-card-foreground mb-2">
             Optimal Posting Times
           </h4>
-          <div className="space-y-2">
+          <div className="space-y-1">
             {bestTimes.map((time, index) => (
               <div key={index} className="flex items-center justify-between p-2 rounded-lg bg-card-accent">
-                <span className="text-sm text-card-foreground font-medium">{time.time}</span>
-                <span className="text-sm text-orange-400 font-semibold">{time.day}</span>
+                <span className="text-xs text-card-foreground font-medium">{time.time}</span>
+                <span className="text-xs text-orange-400 font-semibold">{time.day}</span>
               </div>
             ))}
           </div>

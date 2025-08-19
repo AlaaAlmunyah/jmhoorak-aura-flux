@@ -49,30 +49,30 @@ export function ContentHealthCard() {
   };
 
   return (
-    <Card className="glass hover-lift h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-6">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-base font-semibold flex items-center gap-3">
-          <div className="p-3 rounded-xl bg-orange-500/20 border border-orange-500/30">
-            <Lightbulb className="w-5 h-5 text-orange-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-4">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-sm font-semibold flex items-center gap-2">
+          <div className="p-2 rounded-lg bg-orange-500/20 border border-orange-500/30">
+            <Lightbulb className="w-4 h-4 text-orange-400" />
           </div>
           <div>
             <span className="text-card-foreground">Content Health Meter</span>
-            <p className="text-xs text-muted-foreground font-normal mt-1">Content Balance</p>
+            <p className="text-xs text-muted-foreground font-normal">Content Balance</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-4">
         {/* Donut Chart */}
-        <div className="flex items-center gap-6">
-          <div className="w-24 h-24">
+        <div className="flex items-center gap-4">
+          <div className="w-20 h-20">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={contentHealthData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={30}
-                  outerRadius={45}
+                  innerRadius={25}
+                  outerRadius={38}
                   dataKey="value"
                 >
                   {contentHealthData.map((entry, index) => (
@@ -83,11 +83,11 @@ export function ContentHealthCard() {
             </ResponsiveContainer>
           </div>
           
-          <div className="flex-1 space-y-2">
+          <div className="flex-1 space-y-1">
             {contentHealthData.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 text-sm">
+              <div key={index} className="flex items-center gap-2 text-xs">
                 <div 
-                  className="w-3 h-3 rounded-full"
+                  className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: item.color }}
                 ></div>
                 <span className="text-muted-foreground">{item.name}</span>
@@ -101,22 +101,22 @@ export function ContentHealthCard() {
 
         {/* Health Insights */}
         <div>
-          <h4 className="text-sm font-semibold text-card-foreground mb-4">
+          <h4 className="text-xs font-semibold text-card-foreground mb-3">
             Content Balance Analysis
           </h4>
-          <div className="space-y-3">
+          <div className="space-y-2">
             {healthInsights.map((insight, index) => (
-              <div key={index} className="p-3 rounded-lg bg-card-accent space-y-2">
+              <div key={index} className="p-2 rounded-lg bg-card-accent space-y-1">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm">{getStatusIcon(insight.status)}</span>
-                    <span className="text-sm font-semibold">{insight.category}</span>
+                    <span className="text-xs">{getStatusIcon(insight.status)}</span>
+                    <span className="text-xs font-semibold">{insight.category}</span>
                   </div>
-                  <span className={`text-sm font-bold ${getStatusColor(insight.status)}`}>
+                  <span className={`text-xs font-bold ${getStatusColor(insight.status)}`}>
                     {insight.percentage}%
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground pl-6">
+                <p className="text-xs text-muted-foreground pl-4">
                   {insight.note}
                 </p>
               </div>

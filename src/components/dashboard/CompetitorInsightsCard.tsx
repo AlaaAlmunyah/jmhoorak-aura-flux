@@ -10,15 +10,15 @@ const competitorData = [
 
 export function CompetitorInsightsCard() {
   return (
-    <Card className="glass hover-lift h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-6">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-base font-semibold flex items-center gap-3">
-          <div className="p-3 rounded-xl bg-orange-500/20 border border-orange-500/30">
-            <Swords className="w-5 h-5 text-orange-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-4">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-sm font-semibold flex items-center gap-2">
+          <div className="p-2 rounded-lg bg-orange-500/20 border border-orange-500/30">
+            <Swords className="w-4 h-4 text-orange-400" />
           </div>
           <div>
             <span className="text-card-foreground">Competitor Insights</span>
-            <p className="text-xs text-muted-foreground font-normal mt-1">Market Position</p>
+            <p className="text-xs text-muted-foreground font-normal">Market Position</p>
           </div>
         </CardTitle>
       </CardHeader>

@@ -22,32 +22,32 @@ const locations = [
 
 export function AudienceOverviewCard() {
   return (
-    <Card className="glass hover-lift h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 p-6">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-base font-semibold flex items-center gap-3">
-          <div className="p-3 rounded-xl bg-purple-500/20 border border-purple-500/30">
-            <Users className="w-5 h-5 text-purple-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 p-4">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-sm font-semibold flex items-center gap-2">
+          <div className="p-2 rounded-lg bg-purple-500/20 border border-purple-500/30">
+            <Users className="w-4 h-4 text-purple-400" />
           </div>
           <div>
             <span className="text-card-foreground">Audience Overview</span>
-            <p className="text-xs text-muted-foreground font-normal mt-1">Demographics & Reach</p>
+            <p className="text-xs text-muted-foreground font-normal">Demographics & Reach</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-4">
         {/* Gender Split */}
         <div>
-          <h4 className="text-sm font-medium text-card-foreground mb-3">Gender Distribution</h4>
-          <div className="flex items-center gap-4">
-            <div className="w-20 h-20">
+          <h4 className="text-xs font-medium text-card-foreground mb-2">Gender Distribution</h4>
+          <div className="flex items-center gap-3">
+            <div className="w-16 h-16">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={genderData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={20}
-                    outerRadius={30}
+                    innerRadius={18}
+                    outerRadius={28}
                     dataKey="value"
                   >
                     {genderData.map((entry, index) => (
@@ -57,14 +57,14 @@ export function AudienceOverviewCard() {
                 </PieChart>
               </ResponsiveContainer>
             </div>
-            <div className="text-sm space-y-2">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-primary"></div>
+            <div className="text-xs space-y-1">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary"></div>
                 <span>Male</span>
                 <span className="font-semibold">62%</span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-secondary"></div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-secondary"></div>
                 <span>Female</span>
                 <span className="font-semibold">38%</span>
               </div>
@@ -76,13 +76,13 @@ export function AudienceOverviewCard() {
 
         {/* Age Distribution */}
         <div>
-          <h4 className="text-sm font-medium text-card-foreground mb-3">Age Groups</h4>
-          <div className="h-20">
+          <h4 className="text-xs font-medium text-card-foreground mb-2">Age Groups</h4>
+          <div className="h-16">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={ageData} layout="horizontal">
                 <XAxis type="number" hide />
-                <YAxis type="category" dataKey="age" width={40} fontSize={12} />
-                <Bar dataKey="value" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
+                <YAxis type="category" dataKey="age" width={35} fontSize={10} />
+                <Bar dataKey="value" fill="#8b5cf6" radius={[0, 2, 2, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -92,10 +92,10 @@ export function AudienceOverviewCard() {
 
         {/* Top Locations */}
         <div>
-          <h4 className="text-sm font-medium text-card-foreground mb-3">Top Locations</h4>
-          <div className="space-y-2">
+          <h4 className="text-xs font-medium text-card-foreground mb-2">Top Locations</h4>
+          <div className="space-y-1">
             {locations.map((loc, index) => (
-              <div key={index} className="flex items-center justify-between text-sm">
+              <div key={index} className="flex items-center justify-between text-xs">
                 <span className="text-muted-foreground">{loc.country}</span>
                 <span className="text-primary font-semibold">{loc.percentage}%</span>
               </div>

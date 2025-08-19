@@ -14,29 +14,29 @@ import { Sparkles } from "lucide-react";
 
 export function DashboardGrid() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Idea Input Section */}
       <div className="w-full">
         <div className="relative">
           <Textarea
             placeholder="Enter your content idea or topic to get AI-powered insights and recommendations..."
-            className="w-full h-20 text-base bg-card/50 border-border/50 rounded-xl resize-none pr-32 focus:bg-card/80 transition-colors"
+            className="w-full h-16 text-sm bg-card/50 border-border/50 rounded-lg resize-none pr-28 focus:bg-card/80 transition-colors"
           />
           <Button 
-            className="absolute right-3 top-3 bg-gradient-primary hover:opacity-90 transition-opacity"
+            className="absolute right-2 top-2 bg-gradient-primary hover:opacity-90 transition-opacity"
             size="sm"
           >
-            <Sparkles className="w-4 h-4 mr-2" />
-            Analyze Idea
+            <Sparkles className="w-4 h-4 mr-1" />
+            Analyze
           </Button>
         </div>
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-xs text-muted-foreground mt-1">
           Get instant analysis of viral potential, audience fit, and optimization suggestions
         </p>
       </div>
 
       {/* Dashboard Cards - 2 Column Grid */}
-      <div className="grid grid-cols-2 gap-5 w-full">
+      <div className="grid grid-cols-2 gap-4 w-full">{/* Row 1: Performance Overview */}
         <ViralPotentialCard />
         <AudienceOverviewCard />
         

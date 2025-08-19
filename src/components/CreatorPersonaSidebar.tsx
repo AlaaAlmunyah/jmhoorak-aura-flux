@@ -18,87 +18,77 @@ const engagementData = [
 
 export function CreatorPersonaSidebar() {
   return (
-    <div className="w-80 bg-sidebar border-l border-sidebar-border">
-      <div className="p-6 border-b border-sidebar-border">
-        <h2 className="text-xl font-semibold text-sidebar-foreground flex items-center gap-2">
-          <User className="w-5 h-5 text-primary" />
-          Creator Persona
+    <div className="h-full bg-sidebar border-l border-sidebar-border">
+      <div className="p-4 border-b border-sidebar-border">
+        <h2 className="text-lg font-semibold text-sidebar-foreground flex items-center gap-2">
+          <User className="w-4 h-4 text-primary" />
+          Persona
         </h2>
-        <p className="text-sm text-muted-foreground mt-1">Your content profile</p>
       </div>
       
-      <div className="p-4 space-y-6">
+      <div className="p-3 space-y-4">
         {/* Profile Summary */}
-        <Card className="p-4 glass">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                <User className="w-6 h-6 text-primary-foreground" />
+        <Card className="p-3 glass">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                <User className="w-4 h-4 text-primary-foreground" />
               </div>
               <div>
-                <h3 className="font-semibold text-card-foreground">Tech Creator</h3>
-                <p className="text-sm text-muted-foreground">Educational & Reviews</p>
+                <h3 className="font-semibold text-sm text-card-foreground">Tech Creator</h3>
+                <p className="text-xs text-muted-foreground">Educational</p>
               </div>
             </div>
             
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">Technology</Badge>
-              <Badge variant="secondary">Reviews</Badge>
-              <Badge variant="outline">Tutorial</Badge>
+            <div className="flex flex-wrap gap-1">
+              <Badge variant="secondary" className="text-xs">Tech</Badge>
+              <Badge variant="outline" className="text-xs">Reviews</Badge>
             </div>
           </div>
         </Card>
 
         {/* Key Metrics */}
-        <Card className="p-4 glass">
-          <h4 className="font-semibold text-card-foreground mb-3 flex items-center gap-2">
-            <Target className="w-4 h-4 text-primary" />
-            Key Metrics
+        <Card className="p-3 glass">
+          <h4 className="font-semibold text-sm text-card-foreground mb-3 flex items-center gap-2">
+            <Target className="w-3 h-3 text-primary" />
+            Metrics
           </h4>
           
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span>Avg Engagement</span>
+              <div className="flex justify-between text-xs mb-1">
+                <span>Engagement</span>
                 <span className="text-primary font-medium">7.2%</span>
               </div>
-              <Progress value={72} className="h-2" />
+              <Progress value={72} className="h-1" />
             </div>
             
             <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span>Viral Success Rate</span>
+              <div className="flex justify-between text-xs mb-1">
+                <span>Viral Rate</span>
                 <span className="text-secondary font-medium">23%</span>
               </div>
-              <Progress value={23} className="h-2" />
-            </div>
-            
-            <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span>Content Quality</span>
-                <span className="text-accent font-medium">89%</span>
-              </div>
-              <Progress value={89} className="h-2" />
+              <Progress value={23} className="h-1" />
             </div>
           </div>
         </Card>
 
         {/* Audience Overview */}
-        <Card className="p-4 glass">
-          <h4 className="font-semibold text-card-foreground mb-3 flex items-center gap-2">
-            <Users className="w-4 h-4 text-primary" />
-            Audience Split
+        <Card className="p-3 glass">
+          <h4 className="font-semibold text-sm text-card-foreground mb-3 flex items-center gap-2">
+            <Users className="w-3 h-3 text-primary" />
+            Audience
           </h4>
           
-          <div className="h-24 mb-3">
+          <div className="h-16 mb-2">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={audienceData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={25}
-                  outerRadius={40}
+                  innerRadius={20}
+                  outerRadius={28}
                   dataKey="value"
                 >
                   {audienceData.map((entry, index) => (
@@ -109,58 +99,48 @@ export function CreatorPersonaSidebar() {
             </ResponsiveContainer>
           </div>
           
-          <div className="flex justify-between text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-primary"></div>
-              <span>Male 62%</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-secondary"></div>
-              <span>Female 38%</span>
-            </div>
+          <div className="flex justify-between text-xs">
+            <span>M: 62%</span>
+            <span>F: 38%</span>
           </div>
         </Card>
 
         {/* Performance Chart */}
-        <Card className="p-4 glass">
-          <h4 className="font-semibold text-card-foreground mb-3 flex items-center gap-2">
-            <BarChart3 className="w-4 h-4 text-primary" />
+        <Card className="p-3 glass">
+          <h4 className="font-semibold text-sm text-card-foreground mb-3 flex items-center gap-2">
+            <BarChart3 className="w-3 h-3 text-primary" />
             Performance
           </h4>
           
-          <div className="h-24">
+          <div className="h-16">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={engagementData}>
                 <XAxis dataKey="metric" hide />
                 <YAxis hide />
-                <Bar dataKey="value" fill="#8b5cf6" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="value" fill="#8b5cf6" radius={[1, 1, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </Card>
 
         {/* Creator Style */}
-        <Card className="p-4 glass">
-          <h4 className="font-semibold text-card-foreground mb-3 flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-primary" />
-            Style Profile
+        <Card className="p-3 glass">
+          <h4 className="font-semibold text-sm text-card-foreground mb-3 flex items-center gap-2">
+            <TrendingUp className="w-3 h-3 text-primary" />
+            Style
           </h4>
           
-          <div className="space-y-2 text-sm">
+          <div className="space-y-1 text-xs">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Tone:</span>
-              <span className="text-card-foreground">Professional</span>
+              <span className="text-card-foreground">Pro</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Format:</span>
-              <span className="text-card-foreground">Long-form</span>
+              <span className="text-card-foreground">Long</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Frequency:</span>
-              <span className="text-card-foreground">3x/week</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Peak Time:</span>
+              <span className="text-muted-foreground">Peak:</span>
               <span className="text-card-foreground">2-4 PM</span>
             </div>
           </div>

@@ -5,12 +5,14 @@ import { DashboardGrid } from "@/components/DashboardGrid";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background flex w-full">
-      {/* Left Sidebar - History */}
-      <HistorySidebar />
+      {/* Left Sidebar - History (15% width) */}
+      <div className="w-[15%] min-w-[200px]">
+        <HistorySidebar />
+      </div>
       
-      {/* Main Dashboard */}
-      <main className="flex-1 p-6 overflow-y-auto">
-        <div className="max-w-7xl mx-auto">
+      {/* Main Dashboard (67% width) */}
+      <main className="w-[67%] p-8 overflow-y-auto">
+        <div className="max-w-none mx-auto">
           <header className="mb-8">
             <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-glow">
               JMHOORAK Creator AI Insights
@@ -24,8 +26,10 @@ const Index = () => {
         </div>
       </main>
       
-      {/* Right Sidebar - Creator Persona */}
-      <CreatorPersonaSidebar />
+      {/* Right Sidebar - Creator Persona (18% width) */}
+      <div className="w-[18%] min-w-[240px]">
+        <CreatorPersonaSidebar />
+      </div>
     </div>
   );
 };

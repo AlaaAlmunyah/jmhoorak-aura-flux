@@ -62,31 +62,30 @@ const mockHistory: HistoryItem[] = [
 
 export function HistorySidebar() {
   return (
-    <div className="w-80 bg-sidebar border-r border-sidebar-border">
-      <div className="p-6 border-b border-sidebar-border">
-        <h2 className="text-xl font-semibold text-sidebar-foreground flex items-center gap-2">
-          <Clock className="w-5 h-5 text-primary" />
+    <div className="h-full bg-sidebar border-r border-sidebar-border">
+      <div className="p-4 border-b border-sidebar-border">
+        <h2 className="text-lg font-semibold text-sidebar-foreground flex items-center gap-2">
+          <Clock className="w-4 h-4 text-primary" />
           History
         </h2>
-        <p className="text-sm text-muted-foreground mt-1">Past content analysis</p>
       </div>
       
-      <ScrollArea className="h-[calc(100vh-120px)]">
-        <div className="p-4 space-y-3">
+      <ScrollArea className="h-[calc(100vh-80px)]">
+        <div className="p-2 space-y-2">
           {mockHistory.map((item) => (
             <Card 
               key={item.id}
-              className="p-4 glass hover-lift cursor-pointer animate-slide-up"
+              className="p-3 glass hover-lift cursor-pointer animate-slide-up"
             >
-              <div className="flex gap-3">
+              <div className="space-y-2">
                 <img 
                   src={item.thumbnail}
                   alt={item.title}
-                  className="w-12 h-12 rounded-lg object-cover"
+                  className="w-full aspect-video rounded-md object-cover"
                 />
                 
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-medium text-sm text-card-foreground line-clamp-2 mb-1">
+                <div>
+                  <h3 className="font-medium text-xs text-card-foreground line-clamp-2 mb-1">
                     {item.title}
                   </h3>
                   
@@ -94,7 +93,7 @@ export function HistorySidebar() {
                     {item.timestamp}
                   </p>
                   
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Eye className="w-3 h-3" />
                       <span>{(item.views / 1000).toFixed(1)}k</span>
@@ -102,10 +101,6 @@ export function HistorySidebar() {
                     <div className="flex items-center gap-1">
                       <Heart className="w-3 h-3" />
                       <span>{item.likes}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MessageCircle className="w-3 h-3" />
-                      <span>{item.comments}</span>
                     </div>
                   </div>
                 </div>

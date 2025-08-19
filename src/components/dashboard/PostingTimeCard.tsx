@@ -20,47 +20,50 @@ const bestTimes = [
 
 export function PostingTimeCard() {
   const getIntensity = (value: number) => {
-    if (value >= 90) return "bg-primary";
-    if (value >= 70) return "bg-primary/80";
-    if (value >= 50) return "bg-primary/60";
-    if (value >= 30) return "bg-primary/40";
-    return "bg-primary/20";
+    if (value >= 90) return "bg-orange-400";
+    if (value >= 70) return "bg-orange-400/80";
+    if (value >= 50) return "bg-orange-400/60";
+    if (value >= 30) return "bg-orange-400/40";
+    return "bg-orange-400/20";
   };
 
   return (
-    <Card className="glass hover-lift h-full">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-medium flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-gradient-secondary">
-            <Clock className="w-4 h-4 text-secondary-foreground" />
+    <Card className="glass hover-lift h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-6">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-base font-semibold flex items-center gap-3">
+          <div className="p-3 rounded-xl bg-orange-500/20 border border-orange-500/30">
+            <Clock className="w-5 h-5 text-orange-400" />
           </div>
-          Posting Time Optimizer
+          <div>
+            <span className="text-card-foreground">Posting Time Optimizer</span>
+            <p className="text-xs text-muted-foreground font-normal mt-1">Audience Activity</p>
+          </div>
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-6">
         {/* Heatmap */}
-        <div className="mb-4">
+        <div>
           <div className="grid grid-cols-8 gap-1 text-xs">
             <div></div>
             {days.map((day) => (
-              <div key={day} className="text-center text-muted-foreground p-1">
+              <div key={day} className="text-center text-muted-foreground p-1 font-medium">
                 {day}
               </div>
             ))}
             
             {timeData.map((row, rowIndex) => (
               <div key={rowIndex} className="contents">
-                <div className="text-muted-foreground text-right pr-1 py-1">
+                <div className="text-muted-foreground text-right pr-2 py-1 font-medium">
                   {row.hour}
                 </div>
                 {row.days.map((value, colIndex) => (
                   <div
                     key={colIndex}
-                    className={`aspect-square rounded ${getIntensity(value)} relative`}
+                    className={`aspect-square rounded-lg ${getIntensity(value)} relative transition-all duration-200 hover:scale-110`}
                     title={`${row.hour} ${days[colIndex]}: ${value}% activity`}
                   >
                     {value >= 90 && (
-                      <div className="absolute inset-0 rounded border-2 border-accent animate-pulse"></div>
+                      <div className="absolute inset-0 rounded-lg border-2 border-accent animate-pulse"></div>
                     )}
                   </div>
                 ))}
@@ -69,16 +72,18 @@ export function PostingTimeCard() {
           </div>
         </div>
 
+        <div className="w-full h-px bg-border/50"></div>
+
         {/* Best Times */}
         <div>
-          <h4 className="text-xs font-medium text-muted-foreground mb-2">
+          <h4 className="text-sm font-semibold text-card-foreground mb-3">
             Optimal Posting Times
           </h4>
-          <div className="space-y-1">
+          <div className="space-y-2">
             {bestTimes.map((time, index) => (
-              <div key={index} className="flex items-center justify-between text-xs">
-                <span className="text-card-foreground">{time.time}</span>
-                <span className="text-primary font-medium">{time.day}</span>
+              <div key={index} className="flex items-center justify-between p-2 rounded-lg bg-card-accent">
+                <span className="text-sm text-card-foreground font-medium">{time.time}</span>
+                <span className="text-sm text-orange-400 font-semibold">{time.day}</span>
               </div>
             ))}
           </div>

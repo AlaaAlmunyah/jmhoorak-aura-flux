@@ -44,34 +44,37 @@ export function RiskWarningsCard() {
   };
 
   return (
-    <Card className="glass hover-lift h-full">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-medium flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-gradient-accent">
-            <AlertTriangle className="w-4 h-4 text-accent-foreground" />
+    <Card className="glass hover-lift h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20 p-6">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-base font-semibold flex items-center gap-3">
+          <div className="p-3 rounded-xl bg-red-500/20 border border-red-500/30">
+            <AlertTriangle className="w-5 h-5 text-red-400" />
           </div>
-          Risk / Weakness Warnings
+          <div>
+            <span className="text-card-foreground">Risk / Weakness Warnings</span>
+            <p className="text-xs text-muted-foreground font-normal mt-1">Content Alerts</p>
+          </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-3">
+      <CardContent className="space-y-4">
         {/* Critical Alert Banner */}
         {risks.some(r => r.severity === "high") && (
-          <div className="p-2 bg-red-500/10 border border-red-500/20 rounded-lg">
-            <p className="text-xs text-red-400 font-medium">
+          <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+            <p className="text-sm text-red-400 font-semibold">
               ⚠️ Critical issues detected - immediate attention required
             </p>
           </div>
         )}
 
         {/* Risk List */}
-        <div className="space-y-2">
+        <div className="space-y-4">
           {risks.map((risk, index) => (
-            <div key={index} className="space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="text-sm">{getSeverityIcon(risk.severity)}</span>
+            <div key={index} className="p-4 rounded-lg bg-card-accent space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-lg">{getSeverityIcon(risk.severity)}</span>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h4 className="text-xs font-medium text-card-foreground">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h4 className="text-sm font-semibold text-card-foreground">
                       {risk.type}
                     </h4>
                     <Badge 
@@ -81,23 +84,20 @@ export function RiskWarningsCard() {
                       {risk.severity}
                     </Badge>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-2">
+                  <p className="text-sm text-muted-foreground mb-3">
                     {risk.description}
                   </p>
-                  <div className="flex items-center gap-2">
-                    <Button size="sm" variant="outline" className="h-6 px-2 text-xs">
+                  <div className="flex items-center gap-3">
+                    <Button size="sm" variant="outline" className="h-7 px-3 text-xs">
                       <Zap className="w-3 h-3 mr-1" />
                       AI Suggestion
                     </Button>
-                    <span className="text-xs text-primary">
+                    <span className="text-xs text-orange-400 font-medium">
                       {risk.suggestion}
                     </span>
                   </div>
                 </div>
               </div>
-              {index < risks.length - 1 && (
-                <div className="border-t border-border/50"></div>
-              )}
             </div>
           ))}
         </div>

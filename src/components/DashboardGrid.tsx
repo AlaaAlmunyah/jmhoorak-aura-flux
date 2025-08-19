@@ -35,27 +35,38 @@ export function DashboardGrid() {
         </p>
       </div>
 
-      {/* Dashboard Cards */}
-      <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {/* Row 1: Performance Overview */}
-        <ViralPotentialCard />
-        <AudienceOverviewCard />
-        
-        {/* Row 2: Engagement Analysis */}
-        <EngagementBreakdownCard />
-        <StrengthsWeaknessesCard />
-        
-        {/* Row 3: Market Intelligence */}
-        <TrendRadarCard />
-        <CompetitorInsightsCard />
-        
-        {/* Row 4: Optimization Tools */}
-        <PostingTimeCard />
-        <RiskWarningsCard />
-        
-        {/* Row 5: Content Strategy */}
-        <ContentHealthCard />
-        <ContentFormatCard />
+      {/* Dashboard Cards - Masonry Layout */}
+      <div className="columns-2 gap-8 max-w-6xl mx-auto space-y-0">
+        <div className="break-inside-avoid mb-8">
+          <ViralPotentialCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <AudienceOverviewCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <EngagementBreakdownCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <StrengthsWeaknessesCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <TrendRadarCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <CompetitorInsightsCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <PostingTimeCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <RiskWarningsCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <ContentHealthCard />
+        </div>
+        <div className="break-inside-avoid mb-8">
+          <ContentFormatCard />
+        </div>
       </div>
     </div>
   );

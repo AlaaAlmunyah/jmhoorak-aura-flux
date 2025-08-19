@@ -35,20 +35,16 @@ export function DashboardGrid() {
         </p>
       </div>
 
-      {/* Dashboard Cards - 2 Column Grid */}
-      <div className="grid grid-cols-2 gap-4 w-full">{/* Row 1: Performance Overview */}
+      {/* Dashboard Cards - Floating Widget Layout */}
+      <div className="flex flex-wrap justify-center items-start gap-5 w-full">
         <ViralPotentialCard />
         <AudienceOverviewCard />
-        
         <EngagementBreakdownCard />
         <StrengthsWeaknessesCard />
-        
         <TrendRadarCard />
         <CompetitorInsightsCard />
-        
         <PostingTimeCard />
         <RiskWarningsCard />
-        
         <ContentHealthCard />
         <ContentFormatCard />
       </div>

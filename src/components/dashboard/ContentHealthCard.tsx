@@ -49,30 +49,30 @@ export function ContentHealthCard() {
   };
 
   return (
-    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-4">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-sm font-semibold flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-orange-500/20 border border-orange-500/30">
-            <Lightbulb className="w-4 h-4 text-orange-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-3 w-56">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-xs font-semibold flex items-center gap-2">
+          <div className="p-1.5 rounded-md bg-orange-500/20 border border-orange-500/30">
+            <Lightbulb className="w-3 h-3 text-orange-400" />
           </div>
           <div>
-            <span className="text-card-foreground">Content Health Meter</span>
-            <p className="text-xs text-muted-foreground font-normal">Content Balance</p>
+            <span className="text-card-foreground">Content Health</span>
+            <p className="text-[10px] text-muted-foreground font-normal">Balance</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-3">
         {/* Donut Chart */}
-        <div className="flex items-center gap-4">
-          <div className="w-20 h-20">
+        <div className="flex items-center gap-3">
+          <div className="w-16 h-16">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={contentHealthData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={25}
-                  outerRadius={38}
+                  innerRadius={20}
+                  outerRadius={30}
                   dataKey="value"
                 >
                   {contentHealthData.map((entry, index) => (
@@ -85,9 +85,9 @@ export function ContentHealthCard() {
           
           <div className="flex-1 space-y-1">
             {contentHealthData.map((item, index) => (
-              <div key={index} className="flex items-center gap-2 text-xs">
+              <div key={index} className="flex items-center gap-1 text-[10px]">
                 <div 
-                  className="w-2 h-2 rounded-full"
+                  className="w-1.5 h-1.5 rounded-full"
                   style={{ backgroundColor: item.color }}
                 ></div>
                 <span className="text-muted-foreground">{item.name}</span>
@@ -97,26 +97,24 @@ export function ContentHealthCard() {
           </div>
         </div>
 
-        <div className="w-full h-px bg-border/50"></div>
-
         {/* Health Insights */}
         <div>
-          <h4 className="text-xs font-semibold text-card-foreground mb-3">
-            Content Balance Analysis
+          <h4 className="text-[10px] font-semibold text-card-foreground mb-2">
+            Balance Analysis
           </h4>
-          <div className="space-y-2">
-            {healthInsights.map((insight, index) => (
-              <div key={index} className="p-2 rounded-lg bg-card-accent space-y-1">
+          <div className="space-y-1">
+            {healthInsights.slice(0, 2).map((insight, index) => (
+              <div key={index} className="p-1.5 rounded bg-card-accent">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs">{getStatusIcon(insight.status)}</span>
-                    <span className="text-xs font-semibold">{insight.category}</span>
+                  <div className="flex items-center gap-1">
+                    <span className="text-[10px]">{getStatusIcon(insight.status)}</span>
+                    <span className="text-[10px] font-semibold">{insight.category}</span>
                   </div>
-                  <span className={`text-xs font-bold ${getStatusColor(insight.status)}`}>
+                  <span className={`text-[10px] font-bold ${getStatusColor(insight.status)}`}>
                     {insight.percentage}%
                   </span>
                 </div>
-                <p className="text-xs text-muted-foreground pl-4">
+                <p className="text-[9px] text-muted-foreground pl-3 mt-0.5">
                   {insight.note}
                 </p>
               </div>

@@ -10,33 +10,32 @@ const competitorData = [
 
 export function CompetitorInsightsCard() {
   return (
-    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-4">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-sm font-semibold flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-orange-500/20 border border-orange-500/30">
-            <Swords className="w-4 h-4 text-orange-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 p-3 w-52">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-xs font-semibold flex items-center gap-2">
+          <div className="p-1.5 rounded-md bg-orange-500/20 border border-orange-500/30">
+            <Swords className="w-3 h-3 text-orange-400" />
           </div>
           <div>
-            <span className="text-card-foreground">Competitor Insights</span>
-            <p className="text-xs text-muted-foreground font-normal">Market Position</p>
+            <span className="text-card-foreground">Competitors</span>
+            <p className="text-[10px] text-muted-foreground font-normal">Position</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="h-32">
+      <CardContent className="space-y-3">
+        <div className="h-20">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={competitorData}>
-              <XAxis 
+            <BarChart data={competitorData} layout="vertical">
+              <XAxis type="number" hide />
+              <YAxis 
+                type="category" 
                 dataKey="name" 
-                fontSize={12}
+                width={50} 
+                fontSize={8}
                 axisLine={false}
                 tickLine={false}
               />
-              <YAxis hide />
-              <Bar 
-                dataKey="score" 
-                radius={[6, 6, 0, 0]}
-              >
+              <Bar dataKey="score" radius={[0, 2, 2, 0]}>
                 {competitorData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
@@ -45,29 +44,19 @@ export function CompetitorInsightsCard() {
           </ResponsiveContainer>
         </div>
         
-        <div className="w-full h-px bg-border/50"></div>
-        
-        <div className="space-y-3">
+        <div className="space-y-1">
           {competitorData.map((competitor, index) => (
-            <div key={index} className="flex items-center justify-between text-sm">
-              <div className="flex items-center gap-3">
-                <div 
-                  className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: competitor.color }}
-                ></div>
-                <span className={competitor.name === "You" ? "text-primary font-semibold" : "text-muted-foreground"}>
-                  {competitor.name}
-                </span>
-              </div>
-              <span className="font-semibold">{competitor.score}</span>
+            <div key={index} className="flex justify-between text-[10px]">
+              <span className={competitor.name === "You" ? "font-semibold text-orange-400" : "text-muted-foreground"}>
+                {competitor.name}
+              </span>
+              <span className="font-medium">{competitor.score}</span>
             </div>
           ))}
         </div>
-        
-        <div className="p-3 bg-green-500/10 rounded-lg border border-green-500/20">
-          <p className="text-sm text-green-400 font-medium">
-            📈 +13% above average competitor performance
-          </p>
+
+        <div className="p-2 bg-card-accent rounded text-[10px] text-center">
+          <span className="text-green-400 font-medium">Above average performance</span>
         </div>
       </CardContent>
     </Card>

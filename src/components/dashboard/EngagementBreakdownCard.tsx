@@ -25,25 +25,25 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export function EngagementBreakdownCard() {
   return (
-    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 p-4">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-sm font-semibold flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-blue-500/20 border border-blue-500/30">
-            <BarChart3 className="w-4 h-4 text-blue-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 p-3 w-52">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-xs font-semibold flex items-center gap-2">
+          <div className="p-1.5 rounded-md bg-blue-500/20 border border-blue-500/30">
+            <BarChart3 className="w-3 h-3 text-blue-400" />
           </div>
           <div>
-            <span className="text-card-foreground">Engagement Breakdown</span>
-            <p className="text-xs text-muted-foreground font-normal">Performance Metrics</p>
+            <span className="text-card-foreground">Engagement</span>
+            <p className="text-[10px] text-muted-foreground font-normal">Metrics</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="h-32">
+      <CardContent className="space-y-3">
+        <div className="h-24">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={engagementData}>
               <XAxis 
                 dataKey="metric" 
-                fontSize={10}
+                fontSize={8}
                 axisLine={false}
                 tickLine={false}
               />
@@ -51,25 +51,23 @@ export function EngagementBreakdownCard() {
               <Tooltip content={<CustomTooltip />} />
               <Bar 
                 dataKey="value" 
-                radius={[4, 4, 0, 0]}
+                radius={[2, 2, 0, 0]}
                 fill="#3b82f6"
               />
             </BarChart>
           </ResponsiveContainer>
         </div>
         
-        <div className="w-full h-px bg-border/50"></div>
-        
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2">
           {engagementData.map((item, index) => (
-            <div key={index} className="flex items-center gap-2">
+            <div key={index} className="flex items-center gap-1">
               <div 
-                className="w-2 h-2 rounded-full"
+                className="w-1.5 h-1.5 rounded-full"
                 style={{ backgroundColor: item.color }}
               ></div>
               <div className="flex-1">
-                <p className="text-xs font-medium">{item.value.toLocaleString()}</p>
-                <p className="text-[10px] text-muted-foreground">{item.metric}</p>
+                <p className="text-[10px] font-medium">{item.value.toLocaleString()}</p>
+                <p className="text-[8px] text-muted-foreground">{item.metric}</p>
               </div>
             </div>
           ))}

@@ -44,58 +44,52 @@ export function RiskWarningsCard() {
   };
 
   return (
-    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20 p-4">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-sm font-semibold flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-red-500/20 border border-red-500/30">
-            <AlertTriangle className="w-4 h-4 text-red-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20 p-3 w-64">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-xs font-semibold flex items-center gap-2">
+          <div className="p-1.5 rounded-md bg-red-500/20 border border-red-500/30">
+            <AlertTriangle className="w-3 h-3 text-red-400" />
           </div>
           <div>
-            <span className="text-card-foreground">Risk / Weakness Warnings</span>
-            <p className="text-xs text-muted-foreground font-normal">Content Alerts</p>
+            <span className="text-card-foreground">Risk Warnings</span>
+            <p className="text-[10px] text-muted-foreground font-normal">Alerts</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-3">
+      <CardContent className="space-y-2">
         {/* Critical Alert Banner */}
         {risks.some(r => r.severity === "high") && (
-          <div className="p-2 bg-red-500/10 border border-red-500/20 rounded-lg">
-            <p className="text-xs text-red-400 font-semibold">
-              ⚠️ Critical issues detected - immediate attention required
+          <div className="p-1.5 bg-red-500/10 border border-red-500/20 rounded text-center">
+            <p className="text-[10px] text-red-400 font-semibold">
+              ⚠️ Critical issues detected
             </p>
           </div>
         )}
 
         {/* Risk List */}
-        <div className="space-y-3">
-          {risks.map((risk, index) => (
-            <div key={index} className="p-3 rounded-lg bg-card-accent space-y-2">
+        <div className="space-y-2">
+          {risks.slice(0, 2).map((risk, index) => (
+            <div key={index} className="p-2 rounded bg-card-accent space-y-1">
               <div className="flex items-start gap-2">
-                <span className="text-sm">{getSeverityIcon(risk.severity)}</span>
+                <span className="text-xs">{getSeverityIcon(risk.severity)}</span>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h4 className="text-xs font-semibold text-card-foreground">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <h4 className="text-[10px] font-semibold text-card-foreground">
                       {risk.type}
                     </h4>
                     <Badge 
                       variant="outline" 
-                      className={`text-[10px] ${getSeverityColor(risk.severity)}`}
+                      className={`text-[8px] px-1 py-0 ${getSeverityColor(risk.severity)}`}
                     >
                       {risk.severity}
                     </Badge>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-2">
+                  <p className="text-[9px] text-muted-foreground mb-1">
                     {risk.description}
                   </p>
-                  <div className="flex items-center gap-2">
-                    <Button size="sm" variant="outline" className="h-6 px-2 text-[10px]">
-                      <Zap className="w-2 h-2 mr-1" />
-                      AI Suggestion
-                    </Button>
-                    <span className="text-[10px] text-orange-400 font-medium">
-                      {risk.suggestion}
-                    </span>
-                  </div>
+                  <p className="text-[8px] text-orange-400 font-medium">
+                    💡 {risk.suggestion}
+                  </p>
                 </div>
               </div>
             </div>

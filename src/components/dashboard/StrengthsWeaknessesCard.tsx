@@ -17,30 +17,30 @@ const weaknesses = [
 
 export function StrengthsWeaknessesCard() {
   return (
-    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20 p-4">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-sm font-semibold flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-green-500/20 border border-green-500/30">
-            <Scale className="w-4 h-4 text-green-400" />
+    <Card className="glass hover-lift transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20 p-3 w-60">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-xs font-semibold flex items-center gap-2">
+          <div className="p-1.5 rounded-md bg-green-500/20 border border-green-500/30">
+            <Scale className="w-3 h-3 text-green-400" />
           </div>
           <div>
             <span className="text-card-foreground">Strengths & Weaknesses</span>
-            <p className="text-xs text-muted-foreground font-normal">Content Analysis</p>
+            <p className="text-[10px] text-muted-foreground font-normal">Analysis</p>
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-2 gap-4">
+      <CardContent className="grid grid-cols-2 gap-3">
         {/* Strengths */}
         <div>
-          <h4 className="text-xs font-semibold text-green-400 mb-3 flex items-center gap-1">
-            <CheckCircle className="w-3 h-3" />
+          <h4 className="text-[10px] font-semibold text-green-400 mb-2 flex items-center gap-1">
+            <CheckCircle className="w-2 h-2" />
             Strengths
           </h4>
-          <div className="space-y-2">
-            {strengths.map((strength, index) => (
-              <div key={index} className="flex items-start gap-2">
-                <CheckCircle className="w-3 h-3 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-xs text-card-foreground leading-relaxed">
+          <div className="space-y-1">
+            {strengths.slice(0, 3).map((strength, index) => (
+              <div key={index} className="flex items-start gap-1">
+                <CheckCircle className="w-2 h-2 text-green-400 mt-0.5 flex-shrink-0" />
+                <span className="text-[10px] text-card-foreground leading-relaxed">
                   {strength}
                 </span>
               </div>
@@ -48,19 +48,17 @@ export function StrengthsWeaknessesCard() {
           </div>
         </div>
 
-        <div className="w-px bg-border/50"></div>
-
         {/* Weaknesses */}
         <div>
-          <h4 className="text-xs font-semibold text-red-400 mb-3 flex items-center gap-1">
-            <AlertTriangle className="w-3 h-3" />
+          <h4 className="text-[10px] font-semibold text-red-400 mb-2 flex items-center gap-1">
+            <AlertTriangle className="w-2 h-2" />
             Weaknesses
           </h4>
-          <div className="space-y-2">
-            {weaknesses.map((weakness, index) => (
-              <div key={index} className="flex items-start gap-2">
-                <AlertTriangle className="w-3 h-3 text-red-400 mt-0.5 flex-shrink-0" />
-                <span className="text-xs text-card-foreground leading-relaxed">
+          <div className="space-y-1">
+            {weaknesses.slice(0, 3).map((weakness, index) => (
+              <div key={index} className="flex items-start gap-1">
+                <AlertTriangle className="w-2 h-2 text-red-400 mt-0.5 flex-shrink-0" />
+                <span className="text-[10px] text-card-foreground leading-relaxed">
                   {weakness}
                 </span>
               </div>

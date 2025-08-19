@@ -7,24 +7,30 @@ import { CompetitorInsightsCard } from "@/components/dashboard/CompetitorInsight
 import { PostingTimeCard } from "@/components/dashboard/PostingTimeCard";
 import { RiskWarningsCard } from "@/components/dashboard/RiskWarningsCard";
 import { ContentHealthCard } from "@/components/dashboard/ContentHealthCard";
+import { ContentFormatCard } from "@/components/dashboard/ContentFormatCard";
 
 export function DashboardGrid() {
   return (
-    <div className="grid grid-cols-3 gap-8 auto-rows-fr">
-      {/* Row 1: Performance Metrics */}
+    <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {/* Row 1: Performance Overview */}
       <ViralPotentialCard />
       <AudienceOverviewCard />
-      <EngagementBreakdownCard />
       
-      {/* Row 2: Analysis & Insights */}
+      {/* Row 2: Engagement Analysis */}
+      <EngagementBreakdownCard />
       <StrengthsWeaknessesCard />
+      
+      {/* Row 3: Market Intelligence */}
       <TrendRadarCard />
       <CompetitorInsightsCard />
       
-      {/* Row 3: Optimization & Health */}
+      {/* Row 4: Optimization Tools */}
       <PostingTimeCard />
       <RiskWarningsCard />
+      
+      {/* Row 5: Content Strategy */}
       <ContentHealthCard />
+      <ContentFormatCard />
     </div>
   );
 }

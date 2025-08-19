@@ -10,8 +10,8 @@ const Index = () => {
         <HistorySidebar />
       </div>
       
-      {/* Main Dashboard (67% width) */}
-      <main className="w-[67%] p-8 overflow-y-auto">
+      {/* Main Dashboard (65% width) */}
+      <main className="w-[65%] p-8 overflow-y-auto">
         <div className="max-w-none mx-auto">
           <header className="mb-8">
             <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-glow">

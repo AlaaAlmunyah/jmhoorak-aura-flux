@@ -1,5 +1,4 @@
-# JMHOORAK
-<img width="215" height="64" alt="Screenshot 2025-08-20 at 9 03 48 AM" src="https://github.com/user-attachments/assets/7ae1d7ac-5bee-4fbc-a6fa-c8812ae54a5b" />
+# <img width="215" height="64" alt="Screenshot 2025-08-20 at 9 03 48 AM" src="https://github.com/user-attachments/assets/7ae1d7ac-5bee-4fbc-a6fa-c8812ae54a5b" />
 
 
 JMHOORAK is an AI-powered platform for content creators.

@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# JMHOORAK
 
-## Project info
+JMHOORAK is an AI-powered platform for content creators.
+It helps creators on YouTube, TikTok, Instagram, and X (Twitter) by:
 
-**URL**: https://lovable.dev/projects/3177296b-d0c2-4620-9f7a-83e5556f3dba
+- Analyzing content performance across platforms
+- Predicting audience engagement using AI models
+- Providing actionable recommendations for growth
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Our Approach
 
-**Use Lovable**
+We started JMHOORAK with three clear steps:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3177296b-d0c2-4620-9f7a-83e5556f3dba) and start prompting.
+1. Persona – Studied different types of content creators (YouTubers, TikTokers, influencers) 
+   and identified their pain points: low engagement, inconsistent growth, lack of insights.
 
-Changes made via Lovable will be committed automatically to this repo.
+2. Idea – Designed a platform that connects creators’ data from multiple platforms, 
+   powered by AI to predict success and suggest improvements.
 
-**Use your preferred IDE**
+3. Persona × Idea × Viral – Combined our creator personas with the idea, testing how 
+   strategies could go viral and truly resonate with audiences.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+This process ensures JMHOORAK is built for creators, with creators in mind.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Vite – Frontend build tool
+- TypeScript – Type-safe development
+- React – UI framework
+- shadcn/ui – Component library
+- Tailwind CSS – Styling framework
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## APIs & Integrations
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- YouTube API – video performance & engagement analytics
+- TikTok API – short-form video trends & reach
+- Instagram API – Reels & post insights
+- X (Twitter) API – community sentiment & visibility
+- Social Blade API – cross-platform creator statistics & growth analytics
+- OpenAI API – AI-powered predictions & recommendations
+- DeepSeek API – content intelligence & smart suggestions
+
+---
+
+## Features
+
+- Unified analytics dashboard
+- AI-based content success prediction
+- Recommendations for timing, formats, and keywords
+- Real-time engagement alerts
+- Growth tracking and trend analysis
+
+---
+
+## Running Locally
+
+git clone https://github.com/AlaaAlmunyah/jmhoorak-aura-flux.git
+cd jmhoorak-aura-flux
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+App will run at: http://localhost:5173
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/3177296b-d0c2-4620-9f7a-83e5556f3dba) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Build Command: npm run build
+- Output Directory: dist
